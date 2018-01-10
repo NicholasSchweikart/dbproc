@@ -5,7 +5,7 @@ BEGIN
 
 	# Return the classes this user has access too
 	SELECT classId
-	FROM votodb.authorized_users
+	FROM votodev.authorized_users
 	WHERE userId = user_id;
 
 END

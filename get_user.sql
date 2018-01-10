@@ -5,7 +5,7 @@ BEGIN
 
 	# Return the new user to the caller
 	SELECT *
-	FROM votodb.users
+	FROM votodev.users
 	WHERE userName = userName
 	LIMIT 1;
 

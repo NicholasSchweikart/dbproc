@@ -3,6 +3,6 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `get_all_classes`(
 )
 BEGIN
 
-	SELECT *, UNIX_TIMESTAMP(dateCreated) as timeStamp, UNIX_TIMESTAMP(dateLastUsed) as timeStampLast FROM classes WHERE userId = user_id ORDER BY timeStamp DESC;
+	SELECT *, UNIX_TIMESTAMP(dateCreated) as timeStamp FROM classes WHERE userId = user_id ORDER BY timeStamp DESC;
 
 END
