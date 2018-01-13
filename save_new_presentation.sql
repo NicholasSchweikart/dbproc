@@ -18,12 +18,13 @@ BEGIN
 		UPDATE votodev.classes
 		SET totalPresentations = totalPresentations + 1
 		WHERE classId = class_id;
-		
+
 		# Return the new presentationId to the caller
 		SELECT *, UNIX_TIMESTAMP(dateCreated)
 		AS timeStamp
 		FROM votodev.presentations
 		WHERE presentationId = last_insert_id();
-
+	ELSE
+		SELECT "UN_AUTHORIZED";
 	END IF;
 END

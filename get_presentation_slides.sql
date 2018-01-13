@@ -6,6 +6,11 @@ BEGIN
 	# Ensure this user is the admin
 	IF exists(SELECT userId FROM votodev.presentations WHERE userId = user_id AND presentationId = presentation_id)
     THEN
-			SELECT *, UNIX_TIMESTAMP(dateCreated) as timeStamp FROM slides WHERE presentationId = presentation_id ORDER BY orderNumber ASC;
+			SELECT *, UNIX_TIMESTAMP(dateCreated) as timeStamp
+			FROM slides
+			WHERE presentationId = presentation_id
+			ORDER BY orderNumber ASC;
+		ELSE
+			SELECT "NOT_AUTHORIZED";
 	END IF;
 END

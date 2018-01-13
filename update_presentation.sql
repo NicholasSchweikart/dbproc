@@ -2,7 +2,6 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `update_presentation`(
   IN user_id INT,
   IN presentation_id INT,
   IN title_in VARCHAR(100),
-  IN total_slides INT,
   IN description_in VARCHAR(200)
 )
 BEGIN
@@ -13,7 +12,7 @@ BEGIN
 
       # Update the presentation
       UPDATE votodb.presentations
-      SET className = class_name, title = title_in, totalSlides = total_slides, description = description_in
+      SET className = class_name, title = title_in, description = description_in
       WHERE presentationId = presentation_id;
 
       # Return the new slide to the caller
@@ -21,6 +20,7 @@ BEGIN
       AS timeStamp
       FROM votodb.presentations
       WHERE presentationId = presentation_id;
-
+    ELSE
+      SELECT "UN_AUTHORIZED";
 	END IF;
 END

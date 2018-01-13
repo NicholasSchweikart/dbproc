@@ -1,4 +1,3 @@
-# Returns 1 if  the transaction worked. 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `change_presentation_activation`(
   IN user_id INT,
   IN presentation_id INT,
@@ -29,5 +28,7 @@ BEGIN
     END IF;
 
     SELECT 1;
+    ELSE 
+      SELECT "UN_AUTHORIZED";
   END IF;
 END
